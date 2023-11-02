@@ -52,14 +52,14 @@ class MainActivity : AppCompatActivity() {
           limpar.setOnClickListener {
               expressao.text = ""
               text_resultado.text = ""
-              total = 0
+              LimpiarEstado()
           }
 
 
           val backspace = findViewById<ImageView>(R.id.backspace)
           backspace.setOnClickListener {
               val string = expressao.text.toString()
-              total = 0
+              LimpiarEstado()
 
               if(string.isNotBlank()){
                   expressao.text = string.substring(0,string.length-1)
@@ -68,33 +68,83 @@ class MainActivity : AppCompatActivity() {
 
           }
 
+        fun operciones (primern: Int,segundoN:Int, signo: String){
+
+            //Suma
+            if(signo == "+"){
+            totalMostrar =primern + segundoN
+            text_resultado.text = totalMostrar.toString()
+            expressao.text = ""
+            text_resultado.setText(totalMostrar).toString()
+            LimpiarEstado()
+            }
+
+            //Resta
+            if(signo == "-"){
+                totalMostrar =primern - segundoN
+                text_resultado.text = totalMostrar.toString()
+                expressao.text = ""
+                text_resultado.setText(totalMostrar).toString()
+                LimpiarEstado()
+            }
+
+            //Multiplicacion
+            if(signo == "*"){
+                totalMostrar =primern * segundoN
+                text_resultado.text = totalMostrar.toString()
+                expressao.text = ""
+                text_resultado.setText(totalMostrar).toString()
+                LimpiarEstado()
+            }
+
+            //Divicion
+            if(signo == "/"){
+                totalMostrar =primern / segundoN
+                text_resultado.text = totalMostrar.toString()
+                expressao.text = ""
+                text_resultado.setText(totalMostrar).toString()
+                LimpiarEstado()
+            }
+
+        }
+
+
         val  igual =
             findViewById<TextView>(R.id.igual)
         igual.setOnClickListener {
+
             try {
-
-                text_resultado.text = total.toString()
-                expressao.text = ""
-                total = 0
-
-            }catch (e: Exception){}
+                operciones(PrimerNumero,SegundoNumero,Signo)
+            }catch (e: Exception){
+                print(e)
+            }
         }
 
 
 
+
+
+
     }
-    var total = 0
-    var x = 0
-            fun  ExpressionBuilder(calcular: String, numero: String) {
-                        //suma
-                         if(calcular == "+") {
-                             var suma = numero.toInt()
-                             total = suma.plus(x)
-                             total.toString()
-                         }
-                    }
+    fun espresarvalores(numero: String): Int {var x = numero; return x.toInt()}
+    private var  totalMostrar = 0
+    private var SegundoNumero = 0
+    private var PrimerNumero = 0
+    private var Signo = ""
+    private var CambioSigno = false
+    fun LimpiarEstado(){
+        totalMostrar = 0
+        SegundoNumero = 0
+        PrimerNumero = 0
+        Signo =""
+        CambioSigno = false
+    }
+
+
+
+
             @Override
-            fun acrescentarUmaExpressao(string:String, limpar_dados:Boolean) {
+            fun acrescentarUmaExpressao(NumeroSigno:String, validacioXsignoOnumero:Boolean) {
             val  text_resultado=
                 findViewById<TextView>(R.id.text_resultado)
             val  expressao =
@@ -103,18 +153,19 @@ class MainActivity : AppCompatActivity() {
               expressao.text = ""
             }
 
-            if(limpar_dados){
-                text_resultado.setText(text_resultado.text.toString()+string).toString()
+            if(validacioXsignoOnumero){
+                text_resultado.setText(text_resultado.text.toString()+NumeroSigno).toString()
 
-               if (expressao.text != "")
-                    x = text_resultado.text.length
-                print(x)
+                if (CambioSigno )
+                    SegundoNumero = espresarvalores(text_resultado.text.toString())
+                else{
+                    PrimerNumero = espresarvalores(text_resultado.text.toString())
+                }
             }else{
-              expressao.setText(text_resultado.text).toString()
-              expressao.setText(string).toString()
-              ExpressionBuilder(expressao.text.toString(),text_resultado.text.toString())
-              text_resultado.text = ""
-
+                expressao.setText(NumeroSigno).toString()
+                text_resultado.setText("")
+                CambioSigno = true
+                Signo = NumeroSigno
           }
     }
 }

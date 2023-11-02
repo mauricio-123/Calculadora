@@ -68,14 +68,14 @@ class MainActivity : AppCompatActivity() {
 
           }
 
-        fun operciones (primern: Int,segundoN:Int, signo: String){
+        fun operciones (primern: Double,segundoN:Double, signo: String){
 
             //Suma
             if(signo == "+"){
             totalMostrar =primern + segundoN
             text_resultado.text = totalMostrar.toString()
             expressao.text = ""
-            text_resultado.setText(totalMostrar).toString()
+            text_resultado.setText(totalMostrar.toString()).toString()
             LimpiarEstado()
             }
 
@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity() {
                 totalMostrar =primern - segundoN
                 text_resultado.text = totalMostrar.toString()
                 expressao.text = ""
-                text_resultado.setText(totalMostrar).toString()
+                text_resultado.setText(totalMostrar.toString()).toString()
                 LimpiarEstado()
             }
 
@@ -93,7 +93,7 @@ class MainActivity : AppCompatActivity() {
                 totalMostrar =primern * segundoN
                 text_resultado.text = totalMostrar.toString()
                 expressao.text = ""
-                text_resultado.setText(totalMostrar).toString()
+                text_resultado.setText(totalMostrar.toString()).toString()
                 LimpiarEstado()
             }
 
@@ -102,7 +102,7 @@ class MainActivity : AppCompatActivity() {
                 totalMostrar =primern / segundoN
                 text_resultado.text = totalMostrar.toString()
                 expressao.text = ""
-                text_resultado.setText(totalMostrar).toString()
+                text_resultado.setText(totalMostrar.toString()).toString()
                 LimpiarEstado()
             }
 
@@ -126,16 +126,16 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-    fun espresarvalores(numero: String): Int {var x = numero; return x.toInt()}
-    private var  totalMostrar = 0
-    private var SegundoNumero = 0
-    private var PrimerNumero = 0
+    fun espresarvalores(numero: String): Double {var x = numero; return x.toDouble()}
+    private var  totalMostrar = 0.0
+    private var SegundoNumero = 0.0
+    private var PrimerNumero = 0.0
     private var Signo = ""
     private var CambioSigno = false
     fun LimpiarEstado(){
-        totalMostrar = 0
-        SegundoNumero = 0
-        PrimerNumero = 0
+        totalMostrar = 0.0
+        SegundoNumero = 0.0
+        PrimerNumero = 0.0
         Signo =""
         CambioSigno = false
     }

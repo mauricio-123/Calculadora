@@ -69,44 +69,54 @@ class MainActivity : AppCompatActivity() {
           }
 
         fun operciones (primern: Double,segundoN:Double, signo: String){
+            var totalEntero = 0.0
 
             //Suma
             if(signo == "+"){
-            totalMostrar =primern + segundoN
-            text_resultado.text = totalMostrar.toString()
+            totalEntero =primern + segundoN
+                var totalEntero = if ((totalEntero - totalEntero.toInt() == 0.0)) totalEntero.toInt() else totalEntero
+            totalMostrar = totalEntero.toString()
+            text_resultado.text = totalMostrar
             expressao.text = ""
-            text_resultado.setText(totalMostrar.toString()).toString()
+            text_resultado.setText(totalMostrar).toString()
             LimpiarEstado()
             }
 
             //Resta
             if(signo == "-"){
-                totalMostrar =primern - segundoN
-                text_resultado.text = totalMostrar.toString()
+                totalEntero =primern - segundoN
+                var totalEntero = if ((totalEntero - totalEntero.toInt() == 0.0)) totalEntero.toInt() else totalEntero
+                totalMostrar = totalEntero.toString()
+                text_resultado.text = totalMostrar
                 expressao.text = ""
-                text_resultado.setText(totalMostrar.toString()).toString()
+                text_resultado.setText(totalMostrar).toString()
                 LimpiarEstado()
             }
 
             //Multiplicacion
             if(signo == "*"){
-                totalMostrar =primern * segundoN
-                text_resultado.text = totalMostrar.toString()
+                totalEntero =primern * segundoN
+                var totalEntero = if ((totalEntero - totalEntero.toInt() == 0.0)) totalEntero.toInt() else totalEntero
+                totalMostrar =totalEntero.toString()
+                text_resultado.text = totalMostrar
                 expressao.text = ""
-                text_resultado.setText(totalMostrar.toString()).toString()
+                text_resultado.setText(totalMostrar).toString()
                 LimpiarEstado()
             }
 
             //Divicion
             if(signo == "/"){
-                totalMostrar =primern / segundoN
-                text_resultado.text = totalMostrar.toString()
+                totalEntero =primern / segundoN
+                var totalEntero = if ((totalEntero - totalEntero.toInt() == 0.0)) totalEntero.toInt() else totalEntero
+                totalMostrar =totalEntero.toString()
+                text_resultado.text = totalMostrar
                 expressao.text = ""
-                text_resultado.setText(totalMostrar.toString()).toString()
+                text_resultado.setText(totalMostrar).toString()
                 LimpiarEstado()
             }
 
         }
+
 
 
         val  igual =
@@ -127,20 +137,18 @@ class MainActivity : AppCompatActivity() {
 
     }
     fun espresarvalores(numero: String): Double {var x = numero; return x.toDouble()}
-    private var  totalMostrar = 0.0
+     var  totalMostrar = ""
     private var SegundoNumero = 0.0
     private var PrimerNumero = 0.0
     private var Signo = ""
     private var CambioSigno = false
     fun LimpiarEstado(){
-        totalMostrar = 0.0
+        totalMostrar = ""
         SegundoNumero = 0.0
         PrimerNumero = 0.0
         Signo =""
         CambioSigno = false
     }
-
-
 
 
             @Override

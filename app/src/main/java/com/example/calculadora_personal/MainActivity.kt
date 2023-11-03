@@ -170,6 +170,9 @@ class MainActivity : AppCompatActivity() {
                     PrimerNumero = espresarvalores(text_resultado.text.toString())
                 }
             }else{
+                if (PrimerNumero==0.0){
+                    PrimerNumero = espresarvalores(text_resultado.text.toString())
+                }
                 expressao.setText(NumeroSigno).toString()
                 text_resultado.setText("")
                 CambioSigno = true

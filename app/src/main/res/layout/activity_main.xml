@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@color/background"
     tools:context=".MainActivity">
 
     <TextView
@@ -16,7 +16,7 @@
         android:id="@+id/text_resultado"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:textColor="@color/black"
+        android:textColor="@color/Texto"
         android:textSize="30dp"
         android:layout_marginEnd="10dp"
         android:maxLines="1"
@@ -136,7 +136,7 @@
         <ImageView
             android:id="@+id/backspace"
             style="@style/numbers_Button"
-            android:src="@drawable/backspace"
+            android:src="@drawable/editclear_104146"
             android:scaleType="center"/>
         <TextView
             android:id="@+id/igual"
